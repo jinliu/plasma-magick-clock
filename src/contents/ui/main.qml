@@ -23,18 +23,6 @@ PlasmoidItem {
         trackSeconds: Plasmoid.configuration.seconds
     }
 
-    readonly property var currentTime: clockSource.dateTime
-    onCurrentTimeChanged: {
-        //console.log("Current time changed: " + currentTime.toString())
-        if (cmdline.length > 0) {
-            //console.log("Executing command: " + cmdline)
-            cmdlineDataSource.connectSource(cmdline)
-        } else {
-            main.currentImagePath = ""
-            main.currentImagePath = main.imagePath
-        }
-    }
-
     P5Support.DataSource {
         id: cmdlineDataSource
 
@@ -51,6 +39,17 @@ PlasmoidItem {
     }
 
     property Component clockComponent: Image {
+        readonly property var currentTime: clockSource.dateTime
+        onCurrentTimeChanged: {
+            //console.log("Current time changed: " + currentTime.toString())
+            if (cmdline.length > 0 && cmdlineDataSource.connectedSources.length == 0) {
+                cmdlineDataSource.connectSource(cmdline)
+            } else {
+                main.currentImagePath = ""
+                main.currentImagePath = main.imagePath
+            }
+        }
+        
         Layout.fillWidth: !inHorizontalBar
         Layout.fillHeight: !inVerticalBar
         Layout.minimumWidth: inHorizontalBar ?height / sourceSize.height * sourceSize.width : 0
