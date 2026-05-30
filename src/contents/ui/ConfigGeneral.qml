@@ -36,10 +36,12 @@ KCM.SimpleKCM {
             RadioButton {
 				id: minutes
                 text: qsTr("Minute")
+				checked: !cfg_seconds
             }
             RadioButton {
 				id: seconds
                 text: qsTr("Second")
+				checked: cfg_seconds
             }
         }
 	}
