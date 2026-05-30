@@ -1,0 +1,23 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Jin Liu",
+                "Email": "m.liu.jin@gmail.com"
+            }
+        ],
+        "Name": "MagickClock",
+        "Description": "A highly customizable clock",
+        "Id": "io.github.jinliu.magickclock",
+        "Icon": "clock",
+        "License": "GPL-2.0+",
+        "Version": "0.1",
+        "Category": "Date and Time",
+        "Website": "https://github.com/jinliu/plasma-magick-clock"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-Provides": [
+        "org.kde.plasma.time"
+    ]
+}
